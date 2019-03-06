@@ -1,6 +1,7 @@
 package com.xhystc.cozy.filter;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 /**
  * @author xiehongyang
@@ -8,5 +9,5 @@ import java.sql.Connection;
  */
 public interface ConnectionFilter
 {
-    Connection filter(Connection connection);
+    Connection filter(Connection connection) throws SQLException;
 }

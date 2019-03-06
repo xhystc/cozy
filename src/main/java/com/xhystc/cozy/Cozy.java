@@ -43,7 +43,7 @@ public class Cozy
         }
         filters.get(key).add(filter);
     }
-    static private Connection doFilter(String key,Connection connection){
+    static private Connection doFilter(String key,Connection connection) throws SQLException {
         Connection ret = connection;
         List<ConnectionFilter> filterList = filters.get(key);
         if(filterList != null){

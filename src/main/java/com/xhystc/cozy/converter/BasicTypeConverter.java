@@ -14,27 +14,42 @@ public class BasicTypeConverter implements Converter
             return value;
         } else if(targetClass.equals(int.class) || targetClass.equals(Integer.class)){
             if(StringUtils.isEmpty(value)){
-                return 0;
+                if(targetClass.equals(int.class)){
+                    return 0;
+                }
+                return null;
             }
             return Integer.parseInt(value);
         }else if(targetClass.equals(double.class) || targetClass.equals(Double.class)){
             if(StringUtils.isEmpty(value)){
-                return 0;
+                if(targetClass.equals(double.class)){
+                    return 0;
+                }
+                return null;
             }
             return Double.parseDouble(value);
         }else if(targetClass.equals(float.class) || targetClass.equals(Float.class)){
             if(StringUtils.isEmpty(value)){
-                return 0;
+                if(targetClass.equals(float.class)){
+                    return 0;
+                }
+                return null;
             }
             return Float.parseFloat(value);
         }else if(targetClass.equals(boolean.class) || targetClass.equals(Boolean.class)){
             if(StringUtils.isEmpty(value)){
-                return false;
+                if(targetClass.equals(boolean.class)){
+                    return false;
+                }
+                return null;
             }
             return value.contains("t") || value.equals("1");
         }else if(targetClass.equals(long.class) || targetClass.equals(Long.class)){
             if(StringUtils.isEmpty(value)){
-                return 0;
+                if(targetClass.equals(long.class)){
+                    return 0;
+                }
+                return null;
             }
             return Long.parseLong(value);
         }

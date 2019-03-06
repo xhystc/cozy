@@ -17,7 +17,8 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Field
 {
-    String name() default "";
+    String columnName() default "";
     Class<? extends Converter> converter() default BasicTypeConverter.class;
     boolean entity() default false;
+    Class<? extends Object> ofType() default NoneType.class;
 }

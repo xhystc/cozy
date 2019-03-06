@@ -1,7 +1,7 @@
 package com.xhystc.cozy.core;
+
 import com.xhystc.cozy.exception.CozyException;
 import org.apache.log4j.Logger;
-
 import java.sql.*;
 import java.util.*;
 
@@ -9,6 +9,8 @@ import java.util.*;
  * @author xiehongyang
  * @date 2018/12/15 2:45 PM
  */
+
+//todo sql语句foreach之类的组织方式,batch,JSqlParser,connection+properties+filter,自定义DIV,循环引用,null值?,使用sql关联加载
 public class Query
 {
     static private final Logger logger = Logger.getLogger("cozy");
@@ -67,6 +69,17 @@ public class Query
         return this;
     }
 
+    public Query var(Map<String,?> param){
+        if(sql == null){
+            throw new CozyException("sql is empty");
+        }
+
+        for(Map.Entry<String,?> en : param.entrySet()){
+            this.var(en.getKey(),en.getValue());
+        }
+        return this;
+    }
+
     public <T> List<T> select(Class<T> clazz){
         if(sql == null){
             throw new CozyException("sql is empty");
@@ -86,12 +99,16 @@ public class Query
             resultSet = statement.executeQuery();
             List<T> res = new LinkedList<>();
 
-            ObjectConvertHandler<T> handler = new ObjectConvertHandler<>(clazz);
+            ObjectMapHandler<T> handler = new ObjectMapHandler<>(clazz);
             while (resultSet.next()){
-                res.add(handler.handle(resultSet));
+                T row = handler.handle(resultSet);
+                if(row != null){
+                    res.add(row);
+                }
+
             }
             return res;
-        } catch (SQLException e) {
+        } catch (Exception e) {
             throw new CozyException(e);
         }finally {
             queryDone(resultSet);
@@ -206,6 +223,7 @@ public class Query
     private String wrapeKey(String key){
         return "{"+key+"}";
     }
+
 
 }
 

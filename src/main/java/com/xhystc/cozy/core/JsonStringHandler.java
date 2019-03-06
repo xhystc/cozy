@@ -6,8 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.util.LinkedList;
-import java.util.List;
+
 
 /**
  * @author xiehongyang

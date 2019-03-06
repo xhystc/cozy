@@ -1,7 +1,6 @@
 package com.xhystc.cozy.core;
 
 import com.xhystc.cozy.exception.CozyException;
-import com.xhystc.cozy.filter.ConnectionFilter;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
@@ -20,7 +19,7 @@ public class Session
     static private final Logger logger = Logger.getLogger("cozy");
 
     private Connection connection;
-    private boolean isClose = false;
+    private boolean isClosed = false;
     private List<Query> queryList = new LinkedList<>();
 
 
@@ -35,7 +34,7 @@ public class Session
         }
     }
 
-    public Query creqteQuery(){
+    public Query createQuery(){
         if(!connectionOpened()){
             throw new CozyException("connection is closed");
         }
@@ -89,7 +88,7 @@ public class Session
     }
 
     private boolean connectionOpened(){
-        if(isClose)
+        if(isClosed)
             return false;
         try {
             return !connection.isClosed();
@@ -99,7 +98,7 @@ public class Session
     }
 
     private void close(){
-        isClose = true;
+        isClosed = true;
         try {
             connection.close();
         } catch (SQLException e) {
