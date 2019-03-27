@@ -10,7 +10,7 @@ import java.util.*;
 
 /**
  * @author xiehongyang
- * @date 2018/12/16 3:50 PM
+ *
  */
 public class ObjectMapHandler<T> implements ResultHandler<T>
 {

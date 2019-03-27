@@ -2,7 +2,7 @@ package com.xhystc.cozy.exception;
 
 /**
  * @author xiehongyang
- * @date 2018/12/15 2:15 PM
+ *
  */
 public class CozyException extends RuntimeException
 {

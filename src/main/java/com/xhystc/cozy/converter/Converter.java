@@ -2,7 +2,7 @@ package com.xhystc.cozy.converter;
 
 /**
  * @author xiehongyang
- * @date 2018/12/16 3:11 PM
+ *
  */
 public interface Converter
 {

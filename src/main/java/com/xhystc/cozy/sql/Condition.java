@@ -5,7 +5,7 @@ import javax.sql.DataSource;
 
 /**
  * @author xiehongyang
- * @date 2018/12/15 1:20 PM
+ *
  */
 public class Condition
 {

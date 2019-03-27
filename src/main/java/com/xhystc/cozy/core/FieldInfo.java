@@ -4,7 +4,7 @@ import com.xhystc.cozy.converter.Converter;
 
 /**
  * @author xiehongyang
- * @date 2018/12/21 11:20 AM
+ *
  */
 public class FieldInfo
 {

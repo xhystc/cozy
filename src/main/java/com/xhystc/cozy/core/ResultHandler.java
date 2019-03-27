@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 /**
  * @author xiehongyang
- * @date 2018/12/16 3:41 PM
+ *
  */
 public interface ResultHandler<T>
 {

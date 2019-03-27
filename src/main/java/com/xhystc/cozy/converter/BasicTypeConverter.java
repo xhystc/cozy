@@ -4,7 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * @author xiehongyang
- * @date 2018/12/16 3:13 PM
+ *
  */
 public class BasicTypeConverter implements Converter
 {

@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 
 /**
  * @author xiehongyang
- * @date 2018/12/16 3:09 PM
+ *
  */
 
 @Target(value = ElementType.FIELD)

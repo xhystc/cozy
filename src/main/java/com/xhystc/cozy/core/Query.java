@@ -7,7 +7,7 @@ import java.util.*;
 
 /**
  * @author xiehongyang
- * @date 2018/12/15 2:45 PM
+ *
  */
 
 //todo sql语句foreach之类的组织方式,batch,JSqlParser,connection+properties+filter,自定义DIV,循环引用,null值?,使用sql关联加载
@@ -115,7 +115,7 @@ public class Query
         }
     }
 
-     public List<String> select(){
+     public List<Map<String,Object>> select(){
         if(sql == null){
             throw new CozyException("sql is empty");
         }
@@ -132,8 +132,8 @@ public class Query
         ResultSet resultSet = null;
         try {
             resultSet = statement.executeQuery();
-            JsonStringHandler handler = new JsonStringHandler();
-            List<String> res = new LinkedList<>();
+            MapResultHandler handler = new MapResultHandler();
+            List<Map<String,Object>> res = new LinkedList<>();
             while (resultSet.next()){
                 res.add(handler.handle(resultSet));
             }

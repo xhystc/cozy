@@ -10,7 +10,7 @@ import java.util.Map;
 
 /**
  * @author xiehongyang
- * @date 2018/12/21 11:21 AM
+ *
  */
 public class EntityInfo
 {

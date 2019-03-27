@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 /**
  * @author xiehongyang
- * @date 2018/12/24 10:36 AM
+ *
  */
 public class DefaultFilter implements ConnectionFilter
 {
